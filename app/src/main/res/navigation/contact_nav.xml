@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/contact_nav"
+    app:startDestination="@id/contactList">
+
+    <fragment
+        android:id="@+id/contactList"
+        android:name="com.jackandphantom.contactapp.contactlist.ContactList"
+        android:label="contact_list_fragment"
+        tools:layout="@layout/contact_list_fragment" >
+        <action
+            android:id="@+id/action_contactList_to_contactDetailsFragment"
+            app:destination="@id/contactDetailsFragment" />
+        <action
+            android:id="@+id/action_contactList_to_contactManipulateFragment"
+            app:destination="@id/contactManipulateFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/contactDetailsFragment"
+        android:name="com.jackandphantom.contactapp.contactdetails.ContactDetailsFragment"
+        android:label="contact_details_fragment"
+        tools:layout="@layout/contact_details_fragment" >
+        <action
+            android:id="@+id/action_contactDetailsFragment_to_contactManipulateFragment"
+            app:destination="@id/contactManipulateFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/contactManipulateFragment"
+        android:name="com.jackandphantom.contactapp.contactmanipulate.ContactManipulateFragment"
+        android:label="contact_manipulate_fragment"
+        tools:layout="@layout/contact_manipulate_fragment" />
+</navigation>
