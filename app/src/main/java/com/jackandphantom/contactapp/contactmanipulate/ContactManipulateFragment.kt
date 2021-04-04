@@ -108,7 +108,10 @@ class ContactManipulateFragment : Fragment() {
             contactPhone.setText(it.phone)
             createButton.setText("Update Contact")
             try {
-                contactImage.setImageURI(Uri.parse(it.image))
+                if (it.image.isEmpty())
+                    contactImage.setImageResource(R.drawable.ic_baseline_account_box_24)
+                else
+                    contactImage.setImageURI(Uri.parse(it.image))
             }catch (e: Exception) {
                 e.printStackTrace()
             }

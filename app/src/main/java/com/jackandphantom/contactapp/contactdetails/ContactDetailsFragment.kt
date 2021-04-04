@@ -74,7 +74,10 @@ class ContactDetailsFragment : Fragment() {
            contactName.text = it.name
            contactPhone.text = it.phone
            try {
-               contactImage.setImageURI(Uri.parse(it.image))
+               if (it.image.isEmpty())
+                   contactImage.setImageResource(R.drawable.ic_baseline_account_box_24)
+               else
+                   contactImage.setImageURI(Uri.parse(it.image))
            }catch (e: Exception) {
                e.printStackTrace()
            }
