@@ -33,6 +33,7 @@ class ContactDetailsFragment : Fragment() {
     private lateinit var favButton: Button
     private lateinit var editButton: ImageView
     private lateinit var deleteButton: ImageView
+    private lateinit var backButton: ImageView
 
     private var contactId: Int = 0
     private lateinit var contact: Contact
@@ -58,6 +59,7 @@ class ContactDetailsFragment : Fragment() {
         favButton = view.findViewById(R.id.button)
         editButton = view.findViewById(R.id.edit_button)
         deleteButton = view.findViewById(R.id.delete_button)
+        backButton = view.findViewById(R.id.back_button)
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
@@ -106,6 +108,10 @@ class ContactDetailsFragment : Fragment() {
 
        favButton.setOnClickListener {
            viewModel.updateFav(contactId, true)
+       }
+
+       backButton.setOnClickListener {
+           findNavController().navigateUp()
        }
    }
 

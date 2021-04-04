@@ -37,6 +37,7 @@ class ContactManipulateFragment : Fragment() {
     private lateinit var contactName: EditText
     private lateinit var contactPhone: EditText
     private lateinit var createButton: Button
+    private lateinit var backButton: ImageView
 
     private var image:String = ""
     private var contactId:Int = -1
@@ -61,6 +62,7 @@ class ContactManipulateFragment : Fragment() {
         contactName = view.findViewById(R.id.contact_name)
         contactPhone = view.findViewById(R.id.textView)
         createButton = view.findViewById(R.id.button)
+        backButton = view.findViewById(R.id.back_button)
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
@@ -116,6 +118,9 @@ class ContactManipulateFragment : Fragment() {
                 e.printStackTrace()
             }
         })
+        backButton.setOnClickListener {
+            findNavController().navigateUp()
+        }
     }
 
     private fun chooseImage() {
